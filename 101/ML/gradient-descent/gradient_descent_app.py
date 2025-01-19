@@ -1,21 +1,22 @@
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
-from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 def generate_data(theta0=4, theta1=3, num_points=100):
     X = 2 * np.random.rand(num_points, 1)
     y = theta0 + theta1 * X + np.random.randn(num_points, 1)
     return X, y
 
-def cal_cost(theta, X, y):
+def compute_cost(theta, X, y):
     m = len(y)
     predictions = X.dot(theta)
     cost = (1/2*m) * np.sum(np.square(predictions-y))
     return cost
 
-def plot_cost_surface(X, y, theta_history=None):
+def plot_cost_surface(X_b, y, theta_history=None):
+    """Plot the cost function surface with interactive 3D visualization."""
     # Create a grid of theta0 and theta1 values
     theta0_range = np.linspace(-10, 10, 100)
     theta1_range = np.linspace(-10, 10, 100)
@@ -26,41 +27,75 @@ def plot_cost_surface(X, y, theta_history=None):
     for i in range(len(theta0_range)):
         for j in range(len(theta1_range)):
             theta = np.array([[theta0_mesh[i,j]], [theta1_mesh[i,j]]])
-            cost_mesh[i,j] = cal_cost(theta, X, y)
+            cost_mesh[i,j] = compute_cost(theta, X_b, y)
     
-    # Create 3D surface plot
-    fig = plt.figure(figsize=(10, 8))
-    ax = fig.add_subplot(111, projection='3d')
+    # Create the 3D surface plot using Plotly
+    fig = go.Figure()
     
-    # Plot the surface
-    surface = ax.plot_surface(theta0_mesh, theta1_mesh, cost_mesh, 
-                            cmap='viridis', alpha=0.8)
+    # Add the cost surface
+    fig.add_trace(go.Surface(
+        x=theta0_mesh,
+        y=theta1_mesh,
+        z=cost_mesh,
+        colorscale='viridis',
+        name='Cost Surface'
+    ))
     
-    # Add a color bar
-    plt.colorbar(surface)
-    
-    # If theta history is provided, plot the optimization path
+    # Add the gradient descent path if provided
     if theta_history is not None:
-        theta0_history = theta_history[:,0]
-        theta1_history = theta_history[:,1]
-        cost_history = [cal_cost(np.array([[t0], [t1]]), X, y) 
-                       for t0, t1 in zip(theta0_history, theta1_history)]
+        theta_history = np.array(theta_history)
+        costs = [compute_cost(theta.reshape(-1,1), X_b, y) for theta in theta_history]
         
-        # Plot the path taken by gradient descent
-        ax.plot(theta0_history, theta1_history, cost_history, 
-                'r.-', linewidth=2, label='Gradient descent path')
+        # Add path line
+        fig.add_trace(go.Scatter3d(
+            x=theta_history[:,0],
+            y=theta_history[:,1],
+            z=costs,
+            mode='lines+markers',
+            line=dict(color='red', width=4),
+            marker=dict(
+                size=4,
+                color=list(range(len(costs))),
+                colorscale='Reds',
+            ),
+            name='Gradient Descent Path'
+        ))
         
-        # Plot start and end points
-        ax.scatter(theta0_history[0], theta1_history[0], cost_history[0], 
-                  color='red', s=100, label='Start')
-        ax.scatter(theta0_history[-1], theta1_history[-1], cost_history[-1], 
-                  color='green', s=100, label='End')
+        # Add start point
+        fig.add_trace(go.Scatter3d(
+            x=[theta_history[0,0]],
+            y=[theta_history[0,1]],
+            z=[costs[0]],
+            mode='markers',
+            marker=dict(size=8, color='red'),
+            name='Start Point'
+        ))
+        
+        # Add current/end point
+        fig.add_trace(go.Scatter3d(
+            x=[theta_history[-1,0]],
+            y=[theta_history[-1,1]],
+            z=[costs[-1]],
+            mode='markers',
+            marker=dict(size=8, color='green'),
+            name='Current Point'
+        ))
     
-    ax.set_xlabel('θ₀')
-    ax.set_ylabel('θ₁')
-    ax.set_zlabel('Cost')
-    ax.set_title('Cost Function Surface')
-    ax.legend()
+    # Update the layout
+    fig.update_layout(
+        title='Cost Function Surface',
+        scene=dict(
+            xaxis_title='θ₀',
+            yaxis_title='θ₁',
+            zaxis_title='Cost',
+            camera=dict(
+                eye=dict(x=1.5, y=1.5, z=1.5)
+            )
+        ),
+        width=800,
+        height=800,
+        margin=dict(l=0, r=0, b=0, t=30)
+    )
     
     return fig
 
@@ -75,7 +110,7 @@ def gradient_descent(X, y, theta, learning_rate=0.01, iterations=100):
         prediction_history.append(prediction)
         theta = theta - (1/m) * learning_rate * (X.T.dot((prediction - y)))
         theta_history[it,:] = theta.T
-        cost_history[it] = cal_cost(theta, X, y)
+        cost_history[it] = compute_cost(theta, X, y)
     
     return theta, cost_history, theta_history, prediction_history
 
@@ -240,7 +275,7 @@ with tab1:
     with viz_tab2:
         # Plot 3D cost surface with gradient descent path
         fig3d = plot_cost_surface(X_b, y, theta_history)
-        st.pyplot(fig3d)
+        st.plotly_chart(fig3d, use_container_width=True, key="static_3d_plot")
     
     with viz_tab3:
         # Plot cost history
@@ -294,7 +329,7 @@ with tab1:
                 
                 # Update 3D visualization
                 fig_3d = plot_cost_surface(X_b, y, theta_history[:i+1])
-                plot_placeholder_3d.pyplot(fig_3d)
+                plot_placeholder_3d.plotly_chart(fig_3d, use_container_width=True, key=f"animated_3d_plot_{i}")
             
             # Update the single table placeholder
             table_placeholder.dataframe(
