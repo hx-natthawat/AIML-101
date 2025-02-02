@@ -1,90 +1,19 @@
-# Machine Learning 101 - Gradient Descent Visualization
+# Machine Learning 101 (ML101)
 
-An interactive web application for visualizing and understanding gradient descent optimization in linear regression. This educational tool helps users explore how gradient descent works through real-time visualizations and parameter adjustments.
-
-## Features
-
-### Data Generation
-- Generate synthetic data with customizable parameters:
-  - True θ₀ (intercept): Range from -10 to 10
-  - True θ₁ (slope): Range from -10 to 10
-  - Number of data points: 10 to 500 points
-- Visualize the true underlying linear function
-
-### Interactive Visualizations
-
-#### 1. 2D Plot View
-- Scatter plot of data points
-- Real-time updating regression line
-- Dynamic display of:
-  - Current parameter values
-  - Cost function value
-  - Iteration information
-
-#### 2. 3D Surface Plot
-- Interactive 3D visualization of the cost function surface
-- Axes:
-  - X-axis: θ₀ (intercept parameter)
-  - Y-axis: θ₁ (slope parameter)
-  - Z-axis: Cost value
-- Features:
-  - Gradient descent path visualization
-  - Color-coded surface showing cost landscape
-  - Start point (red) and current/end point (green) markers
-  - Interactive camera controls
-
-#### 3. Cost History Plot
-- Real-time visualization of cost vs. iterations
-- Tracks optimization progress
-- Helps identify convergence
-
-### Training Controls
-- Adjustable learning rate (α)
-- Configurable number of iterations
-- Two optimization modes:
-  1. Manual Mode: Set parameters manually
-  2. Global Optima Search: Automatic learning rate optimization
-
-## Technical Details
-
-### Implementation
-- Built with Streamlit for interactive web interface
-- Uses NumPy for efficient numerical computations
-- Plotly for interactive 3D visualizations
-- Matplotlib for 2D plots and data visualization
-- Pandas for data management
-
-### Algorithm Details
-- **Cost Function**: Mean Squared Error (MSE)
-  ```python
-  cost = (1/2m) * Σ(hθ(x) - y)²
-  ```
-  where m is the number of data points, hθ(x) is the prediction, and y is the actual value
-
-- **Gradient Descent Update Rule**:
-  ```python
-  θ = θ - α * (1/m) * X^T * (X*θ - y)
-  ```
-  where α is the learning rate, X is the input matrix, and y is the target vector
-
-### Global Optima Search
-- Automatically tests multiple learning rates: [0.001, 0.01, 0.05, 0.1, 0.2]
-- Runs 500 iterations for each learning rate
-- Tracks and compares performance metrics:
-  - Final cost
-  - Parameter values (θ₀, θ₁)
-  - Cost reduction percentage
-  - Initial vs final cost
+A comprehensive collection of Machine Learning laboratories and practical exercises, designed to provide hands-on experience with fundamental ML concepts and techniques.
 
 ## Course Structure
 
 ### Lab 0: Python for Machine Learning
 - Introduction to essential Python libraries for ML:
   - NumPy for numerical computations
-  - Pandas for data manipulation
+  - Pandas for data manipulation and analysis
   - Matplotlib for data visualization
-- Practical examples using California Housing dataset
-- Basic data analysis and visualization techniques
+- Hands-on practice with California Housing dataset
+- Topics covered:
+  - Basic data manipulation with Pandas
+  - Data visualization techniques
+  - Statistical analysis and data exploration
 
 ### Lab 1: Linear Regression
 - Implementation of simple linear regression
@@ -93,49 +22,66 @@ An interactive web application for visualizing and understanding gradient descen
   - Data loading and exploration
   - Data visualization using Matplotlib and Seaborn
   - Model building using scikit-learn
-  - Model evaluation and interpretation
-  - Performance metrics (MSE, R²)
+  - Model evaluation using MSE and R² metrics
 
 ### Lab 2: Multiple Linear Regression
-- Advanced regression techniques with multiple variables
-- Handling complex datasets
-- Feature selection and engineering
-- Model validation techniques
-
-### Lab 3: Classification
-- Introduction to classification problems
-- Case study: Fruit Classification using Logistic Regression
+- Advanced regression with California Housing dataset
+- Predicting house prices using multiple features
 - Topics covered:
-  - Binary and multi-class classification
-  - Model evaluation metrics for classification
-  - Confusion matrix interpretation
+  - Data preprocessing and feature scaling
+  - Multiple feature analysis
+  - Model training and validation
+  - Performance evaluation and interpretation
+
+### Lab 3: Classification with Logistic Regression
+- Binary classification using Logistic Regression
+- Case study: Fruit Classification based on Weight and Size
+- Topics covered:
+  - Binary classification concepts
+  - Feature visualization
+  - Model training and evaluation
+  - Decision boundary visualization
 
 ## Project Structure
 ```
 ML101/
 ├── lab/
 │   ├── lab0-intro/
-│   │   ├── 101.ipynb        # Python basics for ML
+│   │   ├── 101.ipynb        # Python basics and data analysis
 │   │   └── 101-2.ipynb     # Advanced Python concepts
 │   ├── lab1/
-│   │   └── lab1_Regression.ipynb    # Linear regression exercises
+│   │   └── lab1_Regression.ipynb    # Simple linear regression
 │   ├── lab2/
-│   │   └── lab2_MultipleRg.ipynb    # Multiple regression analysis
+│   │   └── lab2_MultipleRg.ipynb    # Multiple regression
 │   ├── lab3/
-│   │   └── lab3_Classification_Logistic_Fruits.ipynb    # Classification exercises
-│   └── content/            # Additional learning materials
+│   │   └── lab3_Classification_Logistic_Fruits.ipynb
+│   └── content/            # Additional resources
 ├── ml/
-│   └── gradient-descent/
-│       └── gradient_descent_app.py  # Main application file
+│   └── gradient-descent/   # Interactive visualization tool
 └── README.md
 ```
 
-## Setup
+## Gradient Descent Visualization Tool
+An interactive web application for visualizing gradient descent optimization in linear regression. Features include:
+- Real-time parameter adjustment
+- 2D and 3D visualizations of the cost function
+- Interactive learning rate optimization
+- Cost history tracking
 
-### Prerequisites
-Make sure you have Python 3.7+ installed on your system.
+## Dependencies
+Required packages:
+```
+numpy>=1.19.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+scikit-learn>=0.24.0
+streamlit>=1.0.0
+plotly>=5.3.0
+```
 
-### Installation
+## Setup and Installation
+
 1. Clone the repository:
 ```bash
 git clone [repository-url]
@@ -144,37 +90,24 @@ cd ML101
 
 2. Install required packages:
 ```bash
-pip install streamlit>=1.0.0 numpy>=1.19.0 pandas>=1.3.0 matplotlib>=3.4.0 plotly>=5.3.0
+pip install -r requirements.txt
 ```
 
-3. Run the application:
+3. For interactive notebooks:
+```bash
+jupyter notebook
+```
+
+4. For gradient descent visualization:
 ```bash
 streamlit run ml/gradient-descent/gradient_descent_app.py
 ```
 
-## Usage Guide
-
-1. **Data Generation**:
-   - Use the sidebar sliders to adjust true θ₀ and θ₁ values
-   - Set the desired number of data points
-   - The true function equation will be displayed
-
-2. **Training Configuration**:
-   - Adjust the learning rate (smaller values for more stable learning)
-   - Set the number of iterations
-   - Choose between manual optimization or global optima search
-
-3. **Visualization Options**:
-   - Toggle between 2D and 3D views using tabs
-   - Observe the animation of parameter evolution
-   - Monitor the cost history
-   - Track detailed progress in real-time
-
-4. **Best Practices**:
-   - Start with a small learning rate (0.01) and increase gradually
-   - Use more data points for stable learning
-   - Use the 3D visualization to understand the optimization landscape
-   - Try the global optima search for automatic learning rate selection
+## Prerequisites
+- Basic Python programming knowledge
+- Understanding of fundamental mathematical concepts
+- Jupyter Notebook environment
+- Python 3.7 or higher
 
 ## Contributing
 Contributions are welcome! Please feel free to submit issues and pull requests.
