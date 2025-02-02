@@ -34,3 +34,6 @@ wheels/
 # Virtual Environment
 venv/
 ENV/
+
+# Joblib files
+*.joblib
