@@ -42,6 +42,15 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Model training and evaluation
   - Decision boundary visualization
 
+### Lab 4: Neural Networks
+- Implementation of Multi-Layer Perceptron (MLP) using scikit-learn
+- Case study: Binary Classification with Two Features
+- Topics covered:
+  - Neural network architecture
+  - Data preprocessing and visualization
+  - Model training with MLPClassifier
+  - Decision boundary visualization and evaluation
+
 ## Project Structure
 ```
 ML101/
@@ -57,7 +66,9 @@ ML101/
 │   │   └── lab3_Classification_Logistic_Fruits.ipynb
 │   └── content/            # Additional resources
 ├── ml/
-│   └── gradient-descent/   # Interactive visualization tool
+│   ├── gradient-descent/   # Interactive visualization tool
+│   └── neural-networks/    # Neural network implementations
+│       └── 001/           # Basic neural network with MLPClassifier
 └── README.md
 ```
 
