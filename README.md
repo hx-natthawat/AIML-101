@@ -44,12 +44,21 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
 
 ### Lab 4: Neural Networks
 - Implementation of Multi-Layer Perceptron (MLP) using scikit-learn
-- Case study: Binary Classification with Two Features
+- Case study: Binary Classification for Student Admission
 - Topics covered:
-  - Neural network architecture
-  - Data preprocessing and visualization
-  - Model training with MLPClassifier
-  - Decision boundary visualization and evaluation
+  - Neural network architecture and components
+    * Input, hidden, and output layers
+    * Activation functions (ReLU)
+    * Optimizers (Adam)
+  - Data preprocessing and feature engineering
+  - Advanced visualization techniques
+    * Feature relationship analysis
+    * Decision boundary visualization
+    * Interactive plotting with Plotly
+  - Model training and hyperparameter tuning
+  - Performance evaluation and metrics
+    * Model accuracy and validation
+    * Overfitting prevention
 
 ## Project Structure
 ```
@@ -68,7 +77,7 @@ ML101/
 ├── ml/
 │   ├── gradient-descent/   # Interactive visualization tool
 │   └── neural-networks/    # Neural network implementations
-│       └── 001/           # Basic neural network with MLPClassifier
+│       └── 001/           # Student admission prediction with MLP
 └── README.md
 ```
 
