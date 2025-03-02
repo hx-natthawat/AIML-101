@@ -60,6 +60,19 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
     * Model accuracy and validation
     * Overfitting prevention
 
+### Lab 5: Neural Networks for Image Classification
+- Implementation of neural networks for image classification using different libraries
+- Case study: MNIST Handwritten Digit Classification
+- Topics covered:
+  - Comparative implementations using scikit-learn and Keras/TensorFlow
+  - Neural network architectures for image data
+    * MLPClassifier with scikit-learn
+    * Sequential model with Keras
+  - Data preprocessing for image classification
+  - Model training and evaluation
+  - Performance comparison between different implementations
+  - Hardware acceleration options (CPU, GPU, TPU)
+
 ## Project Structure
 ```
 ML101/
@@ -76,8 +89,14 @@ ML101/
 │   └── content/            # Additional resources
 ├── ml/
 │   ├── gradient-descent/   # Interactive visualization tool
-│   └── neural-networks/    # Neural network implementations
-│       └── 001/           # Student admission prediction with MLP
+│   ├── neural-networks/    # Neural network implementations
+│   │   └── 001/           # Student admission prediction with MLP
+│   └── computer-visions/   # Computer vision implementations
+│       └── 001/           # Image classification with neural networks
+│           ├── NNwithSKlearn.ipynb  # Neural networks with scikit-learn
+│           ├── Lab7KerasNN.ipynb    # Neural networks with Keras
+│           ├── comparison.md        # Comparison between implementations
+│           └── README.md            # Detailed documentation
 └── README.md
 ```
 
@@ -98,6 +117,8 @@ seaborn>=0.11.0
 scikit-learn>=0.24.0
 streamlit>=1.0.0
 plotly>=5.3.0
+tensorflow>=2.0.0  # For Keras neural network implementations
+keras>=2.3.0       # For advanced neural network models
 ```
 
 ## Setup and Installation
