@@ -1,8 +1,8 @@
 # Neural Network Implementation for Image Classification
 
-This directory contains two Jupyter notebooks demonstrating different approaches to implementing neural networks for image classification tasks. The notebooks showcase the use of scikit-learn and Keras libraries for building and training neural network models.
+This directory contains implementations demonstrating different approaches to implementing neural networks for image classification tasks. The implementations showcase the use of scikit-learn, Keras, and PyTorch libraries for building and training neural network models.
 
-## Notebooks
+## Implementations
 
 ### 1. NNwithSKlearn.ipynb
 
@@ -28,6 +28,19 @@ This notebook demonstrates a more advanced implementation of neural networks for
 - Flexibility to adjust hidden layers
 - Performance evaluation and visualization
 
+### 3. pytorch_mnist.py
+
+This Python script provides an implementation of neural networks for image classification using the PyTorch library, following the same structure and functionality as the Keras implementation.
+
+**Key Features:**
+
+- MNIST dataset loading and preprocessing with torchvision
+- Custom neural network class definition
+- Training on CPU or GPU
+- Explicit training and evaluation loops
+- Performance tracking and visualization
+- Same network architecture as the Keras implementation
+
 ## Author
 
 Taweesak Samanchuen
@@ -46,6 +59,8 @@ matplotlib>=3.4.0
 scikit-learn>=0.24.0
 tensorflow>=2.0.0
 keras>=2.3.0
+torch>=1.7.0
+torchvision>=0.8.0
 ```
 
 ## Implementation Details
@@ -94,13 +109,25 @@ model = tf.keras.models.Sequential([
 
 ## Implementations Comparison
 
-A detailed comparison between the two neural network implementations is available in the [comparison.md](comparison.md) file. This document provides:
+### Library Comparison
+
+A detailed comparison between the scikit-learn and Keras neural network implementations is available in the [comparison.md](comparison.md) file. This document provides:
 
 - Detailed analysis of both implementations
 - Key differences in architecture and approach
 - Advantages and limitations of each method
 - Performance comparison
 - Guidelines on when to use each implementation
+
+### Keras vs PyTorch Comparison
+
+A side-by-side comparison between the Keras and PyTorch implementations is available in the [keras_vs_pytorch.md](keras_vs_pytorch.md) file. This document provides:
+
+- Code examples showing equivalent operations in both frameworks
+- Analysis of API design philosophies
+- Differences in execution models and data handling
+- Practical considerations for choosing between frameworks
+- Performance characteristics
 
 ## Usage
 

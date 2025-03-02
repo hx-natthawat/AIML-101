@@ -64,14 +64,16 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
 - Implementation of neural networks for image classification using different libraries
 - Case study: MNIST Handwritten Digit Classification
 - Topics covered:
-  - Comparative implementations using scikit-learn and Keras/TensorFlow
+  - Comparative implementations using scikit-learn, Keras/TensorFlow, and PyTorch
   - Neural network architectures for image data
     * MLPClassifier with scikit-learn
     * Sequential model with Keras
+    * Custom nn.Module with PyTorch
   - Data preprocessing for image classification
   - Model training and evaluation
   - Performance comparison between different implementations
   - Hardware acceleration options (CPU, GPU, TPU)
+  - Framework comparison and selection criteria
 
 ## Project Structure
 ```
@@ -95,7 +97,9 @@ ML101/
 │       └── 001/           # Image classification with neural networks
 │           ├── NNwithSKlearn.ipynb  # Neural networks with scikit-learn
 │           ├── Lab7KerasNN.ipynb    # Neural networks with Keras
-│           ├── comparison.md        # Comparison between implementations
+│           ├── pytorch_mnist.py     # Neural networks with PyTorch
+│           ├── comparison.md        # Comparison between scikit-learn and Keras
+│           ├── keras_vs_pytorch.md  # Comparison between Keras and PyTorch
 │           └── README.md            # Detailed documentation
 └── README.md
 ```
@@ -119,6 +123,8 @@ streamlit>=1.0.0
 plotly>=5.3.0
 tensorflow>=2.0.0  # For Keras neural network implementations
 keras>=2.3.0       # For advanced neural network models
+torch>=1.7.0       # For PyTorch neural network implementations
+torchvision>=0.8.0 # For computer vision utilities in PyTorch
 ```
 
 ## Setup and Installation

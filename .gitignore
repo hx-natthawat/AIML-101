@@ -37,3 +37,6 @@ ENV/
 
 # Joblib files
 *.joblib
+
+# Data directories
+ml/computer-visions/002/data/
