@@ -5,6 +5,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
 ## Course Structure
 
 ### Lab 0: Python for Machine Learning
+
 - Introduction to essential Python libraries for ML:
   - NumPy for numerical computations
   - Pandas for data manipulation and analysis
@@ -16,6 +17,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Statistical analysis and data exploration
 
 ### Lab 1: Linear Regression
+
 - Implementation of simple linear regression
 - Case study: Predicting Fuel Costs Based on Passenger Count
 - Topics covered:
@@ -25,6 +27,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Model evaluation using MSE and R² metrics
 
 ### Lab 2: Multiple Linear Regression
+
 - Advanced regression with California Housing dataset
 - Predicting house prices using multiple features
 - Topics covered:
@@ -34,6 +37,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Performance evaluation and interpretation
 
 ### Lab 3: Classification with Logistic Regression
+
 - Binary classification using Logistic Regression
 - Case study: Fruit Classification based on Weight and Size
 - Topics covered:
@@ -43,32 +47,34 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Decision boundary visualization
 
 ### Lab 4: Neural Networks
+
 - Implementation of Multi-Layer Perceptron (MLP) using scikit-learn
 - Case study: Binary Classification for Student Admission
 - Topics covered:
   - Neural network architecture and components
-    * Input, hidden, and output layers
-    * Activation functions (ReLU)
-    * Optimizers (Adam)
+    - Input, hidden, and output layers
+    - Activation functions (ReLU)
+    - Optimizers (Adam)
   - Data preprocessing and feature engineering
   - Advanced visualization techniques
-    * Feature relationship analysis
-    * Decision boundary visualization
-    * Interactive plotting with Plotly
+    - Feature relationship analysis
+    - Decision boundary visualization
+    - Interactive plotting with Plotly
   - Model training and hyperparameter tuning
   - Performance evaluation and metrics
-    * Model accuracy and validation
-    * Overfitting prevention
+    - Model accuracy and validation
+    - Overfitting prevention
 
 ### Lab 5: Neural Networks for Image Classification
+
 - Implementation of neural networks for image classification using different libraries
 - Case study: MNIST Handwritten Digit Classification
 - Topics covered:
   - Comparative implementations using scikit-learn, Keras/TensorFlow, and PyTorch
   - Neural network architectures for image data
-    * MLPClassifier with scikit-learn
-    * Sequential model with Keras
-    * Custom nn.Module with PyTorch
+    - MLPClassifier with scikit-learn
+    - Sequential model with Keras
+    - Custom nn.Module with PyTorch
   - Data preprocessing for image classification
   - Model training and evaluation
   - Performance comparison between different implementations
@@ -76,6 +82,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Framework comparison and selection criteria
 
 ### Lab 6: Natural Language Processing (NLP)
+
 - Text processing techniques for English and Thai languages
 - Text vectorization and classification techniques
 - Topics covered:
@@ -91,6 +98,7 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Model evaluation and performance comparison
 
 ## Project Structure
+
 ```
 ML101/
 ├── lab/
@@ -127,14 +135,18 @@ ML101/
 ```
 
 ## Gradient Descent Visualization Tool
+
 An interactive web application for visualizing gradient descent optimization in linear regression. Features include:
+
 - Real-time parameter adjustment
 - 2D and 3D visualizations of the cost function
 - Interactive learning rate optimization
 - Cost history tracking
 
 ## Dependencies
+
 Required packages:
+
 ```
 numpy>=1.19.0
 pandas>=1.3.0
@@ -152,34 +164,41 @@ torchvision>=0.8.0 # For computer vision utilities in PyTorch
 ## Setup and Installation
 
 1. Clone the repository:
+
 ```bash
 git clone [repository-url]
 cd ML101
 ```
 
 2. Install required packages:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. For interactive notebooks:
+
 ```bash
 jupyter notebook
 ```
 
 4. For gradient descent visualization:
+
 ```bash
 streamlit run ml/gradient-descent/gradient_descent_app.py
 ```
 
 ## Prerequisites
+
 - Basic Python programming knowledge
 - Understanding of fundamental mathematical concepts
 - Jupyter Notebook environment
 - Python 3.7 or higher
 
 ## Contributing
+
 Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## License
+
 This project is open-source and available under the MIT License.

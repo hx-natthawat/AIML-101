@@ -7,12 +7,14 @@ This directory contains practical exercises and examples for Natural Language Pr
 ### 001: Text Processing Basics
 
 - `01-textprocessing.ipynb`: Basic text processing techniques using NLTK for English text
+
   - Tokenization (sentence and word level)
   - Stopword removal
   - Part-of-speech tagging
   - Stemming
 
 - `02-pythainlp.ipynb`: Thai language text processing using PyThaiNLP
+
   - Text normalization
   - Word segmentation (tokenization for Thai language)
   - Stopword removal
@@ -20,6 +22,7 @@ This directory contains practical exercises and examples for Natural Language Pr
   - Handling Thai-specific tokenization challenges
 
 - `03-tfidf.ipynb`: TF-IDF (Term Frequency-Inverse Document Frequency) implementation
+
   - Creating a TF-IDF vectorizer
   - Converting text documents to TF-IDF features
   - Analyzing word importance across documents
@@ -61,7 +64,6 @@ This directory contains practical exercises and examples for Natural Language Pr
 
 ## Libraries Used
 
-
 - **NLTK (Natural Language Toolkit)**: Comprehensive library for English NLP and corpus access
 - **PyThaiNLP**: Specialized library for Thai language processing
 - **scikit-learn**: Machine learning library for text vectorization and classification
@@ -81,7 +83,6 @@ pip install pythainlp
 ```
 
 ### Required NLTK Resources
-
 
 ```python
 import nltk
