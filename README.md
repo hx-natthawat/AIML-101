@@ -75,6 +75,21 @@ A comprehensive collection of Machine Learning laboratories and practical exerci
   - Hardware acceleration options (CPU, GPU, TPU)
   - Framework comparison and selection criteria
 
+### Lab 6: Natural Language Processing (NLP)
+- Text processing techniques for English and Thai languages
+- Text vectorization and classification techniques
+- Topics covered:
+  - Text normalization and cleaning
+  - Tokenization (sentence and word level)
+  - Stopword removal
+  - Part-of-speech tagging
+  - Stemming for English text
+  - Word segmentation for Thai text
+  - Handling language-specific challenges
+  - TF-IDF vectorization for document representation
+  - Text classification using machine learning algorithms
+  - Model evaluation and performance comparison
+
 ## Project Structure
 ```
 ML101/
@@ -93,14 +108,21 @@ ML101/
 │   ├── gradient-descent/   # Interactive visualization tool
 │   ├── neural-networks/    # Neural network implementations
 │   │   └── 001/           # Student admission prediction with MLP
-│   └── computer-visions/   # Computer vision implementations
-│       └── 001/           # Image classification with neural networks
-│           ├── NNwithSKlearn.ipynb  # Neural networks with scikit-learn
-│           ├── Lab7KerasNN.ipynb    # Neural networks with Keras
-│           ├── pytorch_mnist.py     # Neural networks with PyTorch
-│           ├── comparison.md        # Comparison between scikit-learn and Keras
-│           ├── keras_vs_pytorch.md  # Comparison between Keras and PyTorch
-│           └── README.md            # Detailed documentation
+│   ├── computer-visions/   # Computer vision implementations
+│   │   └── 001/           # Image classification with neural networks
+│   │       ├── NNwithSKlearn.ipynb  # Neural networks with scikit-learn
+│   │       ├── Lab7KerasNN.ipynb    # Neural networks with Keras
+│   │       ├── pytorch_mnist.py     # Neural networks with PyTorch
+│   │       ├── comparison.md        # Comparison between scikit-learn and Keras
+│   │       ├── keras_vs_pytorch.md  # Comparison between Keras and PyTorch
+│   │       └── README.md            # Detailed documentation
+│   └── nlp/               # Natural Language Processing
+│       ├── 001/           # Text processing basics
+│       │   ├── 01-textprocessing.ipynb  # English text processing with NLTK
+│       │   ├── 02-pythainlp.ipynb       # Thai text processing with PyThaiNLP
+│       │   ├── 03-tfidf.ipynb           # TF-IDF implementation
+│       │   └── 04-movie-review-classificatiob.ipynb  # Text classification
+│       └── README.md       # NLP documentation
 └── README.md
 ```
 
