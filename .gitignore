@@ -40,3 +40,5 @@ ENV/
 
 # Data directories
 ml/computer-visions/002/data/
+
+ml/nlp/003/.env
